@@ -4,6 +4,7 @@
 ## Prerequisites
     - Python 3.x
     - Docker (if running the code within a Docker environment)
+    - Docker Compose
 
 ## Setup
 
