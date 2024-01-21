@@ -1,0 +1,73 @@
+version: '3'
+services:
+  mlflow-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    networks:
+      - mlflow_network
+      
+  model-training:
+    build:
+      context: .
+    command: ["tail", "-f", "/dev/null"]
+    depends_on:
+      - mlflow-ui
+    networks:
+      - mlflow_network
+
+networks:
+  mlflow_network:
+    driver: bridge
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: '3'
+# services:
+#   mlflow-server:
+#     image: python:3.8
+#     container_name: mlflow-server
+#     ports:
+#       - "5000:5000"
+#     networks:
+#       - mlflow_network
+#     entrypoint: mlflow ui
+
+#   model-training:
+#     build:
+#       context: .
+#     command: ["tail", "-f", "/dev/null"]
+#     depends_on:
+#       - mlflow-server
+#     networks:
+#       - mlflow_network
+
+# networks:
+#   mlflow_network:
+#     driver: bridge
+
+

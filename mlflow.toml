@@ -1,0 +1,2 @@
+[server]
+tracking_uri = "http://mlflow-ui:5000"
